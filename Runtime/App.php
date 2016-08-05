@@ -1,6 +1,6 @@
 <?php /**
         Author: SpringHack - springhack@live.cn
-        Last modified: 2016-08-04 18:10:29
+        Last modified: 2016-08-05 16:36:40
         Filename: App.php
         Description: Created by SpringHack using vim automatically.
 **/ ?>
@@ -30,7 +30,7 @@
         public static function S($key, $val = NULL)
         {
             if ($val != NULL)
-                $_SESSION[$KEY] = $VAL;
+                $_SESSION[$KEY] = $val;
             return isset($_SESSION[$key])?$_SESSION[$key]:NULL;
         }
 
