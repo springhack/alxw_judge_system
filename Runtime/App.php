@@ -34,6 +34,11 @@
             return isset($_SESSION[$key])?$_SESSION[$key]:NULL;
         }
 
+        public static function F($key, $reg)
+        {
+            return (self::I($key) && preg_match($reg, $key));
+        }
+
         public static function init()
         {
             global $CONFIG;

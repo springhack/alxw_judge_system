@@ -7,11 +7,23 @@
 <?php
 
     Router::uses('/.*/', function ($param, $url) {
+
+        //Get view component 404
         $view = Router::V('404');
-        Router::Render($view, array_merge(
-           $GLOBALS['CONFIG']['SEO_INFO'],
-           array('title' => '404 Not Found !')
-        ));
+
+        //Render view
+        Router::Render(
+            //View component
+            $view, 
+            //Merge SEO_INFO and title
+            array_merge(
+                //SEO_INFO
+                $GLOBALS['CONFIG']['SEO_INFO'],
+                //Title
+                array('title' => 'Default page, 404 Not Found !')
+            )
+        );
+
     });
 
 ?>
