@@ -8,6 +8,7 @@
     
     define('APP_ROOT', dirname(__FILE__));
     define('RUN_ROOT', APP_ROOT.'/'.'Runtime');
+    define('WEB_ROOT', str_replace('/index.php', '', $_SERVER['SCRIPT_NAME']));
 
     require_once(RUN_ROOT.'/App.php');
     require_once(RUN_ROOT.'/MySQL.php');

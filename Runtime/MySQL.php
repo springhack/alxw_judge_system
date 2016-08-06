@@ -7,7 +7,7 @@
 <?php
 
     if (!function_exists('mysql_connect'))
-        require_once(RUN_ROOT.'/mysql_mysqli.php');
+        require_once(RUN_ROOT.'/DBDriver.php');
 
 	class MySQL {
 		private $sql = NULL;

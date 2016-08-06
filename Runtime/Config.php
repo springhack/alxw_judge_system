@@ -9,6 +9,18 @@
         'DB_HOST' => '127.0.0.1',
         'DB_USER' => 'root',
         'DB_PASS' => 'sksks',
-        'DB_NAME' => 'build_vj'
+        'DB_NAME' => 'build_vj',
+        'SEO_INFO' => array(
+            'meta' => array(
+                array(
+                    'name' => 'keyword',
+                    'content' => 'Alxw, Virtual Judge, Online Judge, SpringHack'
+                ),
+                array(
+                    'name' => 'viewport',
+                    'content' => 'width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no'
+                )
+            )
+        )
     );
 ?>

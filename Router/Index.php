@@ -6,9 +6,12 @@
 **/ ?>
 <?php
 
-    Router::uses('/\/$/', function ($param, $url) {
-        $o = Router::O('404');
-        Router::Render($o);
+    Router::uses('/.*/', function ($param, $url) {
+        $view = Router::V('404');
+        Router::Render($view, array_merge(
+           $GLOBALS['CONFIG']['SEO_INFO'],
+           array('title' => '404 Not Found !')
+        ));
     });
 
 ?>
