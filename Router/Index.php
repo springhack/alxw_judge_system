@@ -6,7 +6,7 @@
 **/ ?>
 <?php
 
-    Router::uses('/.*/', function ($param, $url) {
+    Router::uses('/\/$/', function ($param, $url) {
 
 
         //Get view component 404

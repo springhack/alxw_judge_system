@@ -8,6 +8,11 @@
 
     @session_start();
 
+    function import($vendor)
+    {
+        require_once(APP_ROOT.'/Vendor/'.str_replace('.', '/', $vendor).'.class.php');
+    }
+
     class App {
 
         public static $M;
