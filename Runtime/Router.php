@@ -54,6 +54,7 @@
         {
             $buffer = str_replace('./js/', WEB_ROOT.'/View/'.$view['name'].'/dist/js/', $view['html']);
             $buffer = str_replace('./css/', WEB_ROOT.'/View/'.$view['name'].'/dist/css/', $buffer);
+            $buffer = str_replace('./static/', WEB_ROOT.'/View/'.$view['name'].'/dist/static/', $buffer);
             if (isset($param['title']))
                 $buffer = str_replace('<title>SpringHack</title>', '<title>'.$param['title'].'</title>', $buffer);
             if (isset($param['meta']))
