@@ -20,7 +20,20 @@
                     'name' => 'viewport',
                     'content' => 'width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no'
                 )
-            )
+            ),
+            'link' => array(
+                array(
+                    'rel' => 'icon',
+                    'type' => 'image/x-icon',
+                    'href' => 'favicon.ico'
+                )
+            )/**,
+            'script' => array(
+                array(
+                    'language' => 'javascript',
+                    'src' => 'demo.src.js'
+                )
+            )**/
         )
     );
 ?>

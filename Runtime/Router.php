@@ -60,8 +60,32 @@
             {
                 $tmp_buffer = '';
                 foreach ($param['meta'] as $meta)
-                    $tmp_buffer .= '<meta content="'.$meta['content'].'" name="'.$meta['name'].'">';
+                    $tmp_buffer .= PHP_EOL.'<meta content="'.$meta['content'].'" name="'.$meta['name'].'">';
                 $buffer = str_replace('<meta charset="UTF-8">', '<meta charset="UTF-8">'.$tmp_buffer, $buffer);
+            }
+            if (isset($param['link']))
+            {
+                $tmp_buffer = '';
+                foreach ($param['link'] as $link)
+                {
+                    $tmp_buffer .='<link';
+                    foreach ($link as $k => $v)
+                        $tmp_buffer .= ' '.$k.'="'.$v.'"';
+                    $tmp_buffer .= '>'.PHP_EOL;
+                }
+                $buffer = str_replace('</head>', $tmp_buffer.'</head>', $buffer);
+            }
+            if (isset($param['script']))
+            {
+                $tmp_buffer = '';
+                foreach ($param['script'] as $link)
+                {
+                    $tmp_buffer .='<script';
+                    foreach ($link as $k => $v)
+                        $tmp_buffer .= ' '.$k.'="'.$v.'"';
+                    $tmp_buffer .= '></script>'.PHP_EOL;
+                }
+                $buffer = str_replace('</html>', $tmp_buffer.'</html>', $buffer);
             }
             echo $buffer;
             exit(0);

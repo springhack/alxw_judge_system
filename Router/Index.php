@@ -8,6 +8,7 @@
 
     Router::uses('/.*/', function ($param, $url) {
 
+
         //Get view component 404
         $view = Router::V('404');
 
@@ -23,6 +24,7 @@
                 array('title' => 'Default page, 404 Not Found !')
             )
         );
+        
 
     });
 
