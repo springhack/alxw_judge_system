@@ -1,6 +1,6 @@
 <?php /**
         Author: SpringHack - springhack@live.cn
-        Last modified: 2016-08-04 17:51:46
+        Last modified: 2016-08-08 21:55:34
         Filename: Config.php
         Description: Created by SpringHack using vim automatically.
 **/ ?>
@@ -26,6 +26,12 @@
                     'rel' => 'icon',
                     'type' => 'image/x-icon',
                     'href' => 'favicon.ico'
+                ),
+                array(
+                    'href' => '//cdn.muicss.com/mui-0.6.8/css/mui.min.css',
+                    'rel' => 'stylesheet',
+                    'type' => 'text/css',
+                    'media' => 'screen'
                 )
             )/**,
             'script' => array(
