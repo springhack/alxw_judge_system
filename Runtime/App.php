@@ -46,8 +46,11 @@
 
         public static function init()
         {
-            global $CONFIG;
+            global $CONFIG, $DB_STRUCT;
             self::$M = new MySQL($CONFIG['DB_HOST'],$CONFIG['DB_USER'], $CONFIG['DB_PASS'], $CONFIG['DB_NAME']);
+            foreach ($DB_STRUCT as $table)
+                if (self::$M->query("SHOW TABLES LIKE '".$table['table']."'")->num_rows() != 1)
+                    self::$M->struct($table['struct'])->create($table['table']);
         }
 
     }
