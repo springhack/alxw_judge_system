@@ -13,7 +13,7 @@
 
         
         //Instance of class ValidationCode
-        $c = new ValidationCode(80, 20, 4);
+        $c = new ValidationCode(128, 32, 4);
         //Show ValidationCode
         $c->showImage();
         

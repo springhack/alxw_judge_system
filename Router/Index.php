@@ -1,6 +1,6 @@
 <?php /**
         Author: SpringHack - springhack@live.cn
-        Last modified: 2016-08-04 22:03:17
+        Last modified: 2016-08-11 14:46:05
         Filename: Index.php
         Description: Created by SpringHack using vim automatically.
 **/ ?>
@@ -10,7 +10,7 @@
 
 
         //Get view component 404
-        $view = Router::V('404');
+        $view = Router::V('Index');
 
         //Render view
         Router::Render(
@@ -21,7 +21,7 @@
                 //SEO_INFO
                 $GLOBALS['CONFIG']['SEO_INFO'],
                 //Title
-                array('title' => 'Default page, 404 Not Found !')
+                array('title' => 'Welcome to Alxw Judge System - Login && Register')
             )
         );
         
