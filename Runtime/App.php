@@ -41,7 +41,17 @@
 
         public static function F($key, $reg)
         {
-            return (self::I($key) && preg_match($reg, $key));
+            return (self::I($key) && preg_match($reg, self::I($key)));
+        }
+
+        public static function GF($key, $reg)
+        {
+            return (self::G($key) && preg_match($reg, self::G($key)));
+        }
+
+        public static function PF($key, $reg)
+        {
+            return (self::P($key) && preg_match($reg, self::P($key)));
         }
 
         public static function init()

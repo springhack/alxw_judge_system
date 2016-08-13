@@ -11,6 +11,7 @@
         'DB_USER' => 'root',
         'DB_PASS' => 'sksks',
         'DB_NAME' => 'alxw_judge',
+        'HASH_SALT' => 'SpringHack',
         'SEO_INFO' => array(
             'meta' => array(
                 array(

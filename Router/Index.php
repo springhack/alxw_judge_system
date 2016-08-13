@@ -6,26 +6,42 @@
 **/ ?>
 <?php
 
+    import('Util.StaticTools');
+
     Router::uses('/\/$/', function ($param, $url) {
-
-
-        //Get view component 404
         $view = Router::V('Index');
-
-        //Render view
         Router::Render(
-            //View component
             $view, 
-            //Merge SEO_INFO and title
             array_merge(
-                //SEO_INFO
                 $GLOBALS['CONFIG']['SEO_INFO'],
-                //Title
                 array('title' => 'Welcome to Alxw Judge System - Login && Register')
             )
         );
-        
+    });
 
+    Router::uses('/Index$/', function ($param, $url) {
+        if (App::PF('action', '/^login$/'))
+        {
+            if (App::PF('user', '/^[0-9a-zA-Z]{4,23}$/') && App::PF('pass', '/^[0-9a-zA-Z_]{4,23}$/'))
+            {
+                $user = App::P('user');
+                $pass = StaticTools::hash(App::P('pass'), $CONFIG['CONFIG']['HASH_SALT']);
+                $uid = App::$M->from('User')->where("`user`='$user' and `pass`='$pass'")->select('id')->fetch_one();
+                if ($uid != '')
+                {
+                    App::S('uid', $uid['id']);
+                    echo json_encode(array(
+                        'result' => 'success',
+                        'uid' => $uid['id']
+                    ));
+                } else {
+                    echo json_encode(array(
+                        'result' => 'failed',
+                        'reason' => 'No such user or password wrong !'
+                    ));
+                }
+            }
+        }
     });
 
 ?>
