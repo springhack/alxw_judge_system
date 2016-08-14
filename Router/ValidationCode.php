@@ -14,6 +14,8 @@
         
         //Instance of class ValidationCode
         $c = new ValidationCode(128, 32, 4);
+        //Save code to session
+        App::S('verify', $c->getCheckCode());
         //Show ValidationCode
         $c->showImage();
         
