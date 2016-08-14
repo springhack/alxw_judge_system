@@ -35,7 +35,7 @@
         public static function S($key, $val = NULL)
         {
             if ($val != NULL)
-                $_SESSION[$KEY] = $val;
+                $_SESSION[$key] = $val;
             return isset($_SESSION[$key])?$_SESSION[$key]:NULL;
         }
 

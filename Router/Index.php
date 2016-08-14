@@ -25,7 +25,7 @@
             if (App::PF('user', '/^[0-9a-zA-Z]{4,23}$/') && App::PF('pass', '/^[0-9a-zA-Z_]{4,23}$/'))
             {
                 $user = App::P('user');
-                $pass = StaticTools::hash(App::P('pass'), $CONFIG['CONFIG']['HASH_SALT']);
+                $pass = StaticTools::hash(App::P('pass'), $GLOBALS['CONFIG']['HASH_SALT']);
                 $uid = App::$M->from('User')->where("`user`='$user' and `pass`='$pass'")->select('id')->fetch_one();
                 if ($uid != '')
                 {
@@ -40,7 +40,17 @@
                         'reason' => 'No such user or password wrong !'
                     ));
                 }
+            } else {
+                echo json_encode(array(
+                    'result' => 'failed',
+                    'reason' => 'Illegal user or password !'
+                ));
             }
+        } else {
+            echo json_encode(array(
+                'result' => 'failed',
+                'reason' => 'Illegal request !'
+            ));
         }
     });
 
