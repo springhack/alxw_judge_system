@@ -8,8 +8,11 @@
 
     import('Util.StaticTools');
 
-    Router::uses('/\/$/', function ($param, $url) {
-        $view = Router::V('Index');
+    function login($param, $url)
+    {
+        if (App::S('uid'))
+            Router::R('Main');
+        $view = Router::V('Login');
         Router::Render(
             $view, 
             array_merge(
@@ -17,9 +20,13 @@
                 array('title' => 'Welcome to Alxw Judge System - Login && Register')
             )
         );
-    });
+    }
 
-    Router::uses('/Index$/', function ($param, $url) {
+    Router::uses('/\/Login$/', 'login');
+
+    Router::uses('/\/$/', 'login');
+
+    Router::uses('/\/Status$/', function ($param, $url) {
         if (App::PF('action', '/^login$/'))
         {
             if (App::PF('user', '/^[0-9a-zA-Z]{4,23}$/') && App::PF('pass', '/^[0-9a-zA-Z_]{4,23}$/'))
