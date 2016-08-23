@@ -22,11 +22,9 @@
         );
     }
 
-    Router::uses('/\/Login$/', 'login');
-
     Router::uses('/\/$/', 'login');
 
-    Router::uses('/\/Status$/', function ($param, $url) {
+    Router::uses('/\/Login$/', function ($param, $url) {
         if (App::PF('action', '/^login$/'))
         {
             if (App::PF('user', '/^[0-9a-zA-Z]{4,23}$/') && App::PF('pass', '/^[0-9a-zA-Z_]{4,23}$/'))
@@ -95,10 +93,7 @@
                 ));
             }
         } else {
-            echo json_encode(array(
-                'result' => 'failed',
-                'reason' => 'Illegal request !'
-            ));
+            login($param, $url);
         }
     });
 
